@@ -24,7 +24,6 @@ class Visualization:
             ticktext=self.df['workclass'].unique()
         ))
         fig_hours_salary.update_traces(selector=dict(mode='markers'), marker=dict(opacity=0))
-        fig_hours_salary.show()
         return fig_hours_salary
     
     def repartitionSalaryInTheWorld(self):
@@ -35,7 +34,6 @@ class Visualization:
                            title="Répartition de la main d’œuvre et salaires moyens par pays",
                            color_continuous_scale=px.colors.sequential.Plasma)
         
-        fig_geo_salary.show()
         return fig_geo_salary
 
     def trancheSalarialParRace(self):
@@ -43,17 +41,14 @@ class Visualization:
         fig_race_gender_salary = px.bar(race_gender_salary, x="race", y="count", color="sex",
                                 facet_col="salary", title=" Représentation de la race et du sexe dans les différentes tranches salariales",
                                 labels={'count':'Count', 'race':'Race', 'sex':'Gender', 'salary':'Salary Bracket'})
-        fig_race_gender_salary.show()
         return fig_race_gender_salary
 
 
     def positive_capital_by_workclass(self):
         fig_workclass = px.histogram(self.df, x="workclass", y=["positive_capital", "negative_capital"],color_discrete_sequence=["green", "red"],title="Gains et pertes en capital par classe de travail")
-        fig_workclass.show()
         return fig_workclass
     
     def positive_capital_by_education(self):
         fig_education = px.histogram(self.df, x="education", y=["positive_capital", "negative_capital"],color_discrete_sequence=["blue", "orange"],title="Gains et pertes en capital par niveau d'éducation") 
-        fig_education.show()
         return fig_education
     

@@ -13,7 +13,6 @@ def visualization():
     trancheSalary = json.dumps(vis.trancheSalarialParRace(), cls=plotly.utils.PlotlyJSONEncoder)
     positiveCapitalByWorkclass = json.dumps(vis.positive_capital_by_workclass(), cls=plotly.utils.PlotlyJSONEncoder)
     positiveCapitalByEducation = json.dumps(vis.positive_capital_by_education(), cls=plotly.utils.PlotlyJSONEncoder)
-    test = json.dumps(vis.test(), cls=plotly.utils.PlotlyJSONEncoder)
     return jsonify({"repartitionSalaryInTheWorld": repartitionSalaryInTheWorld,
                     "trancheSalary":trancheSalary,
                     "positiveCapitalByWorkclass":positiveCapitalByWorkclass,
