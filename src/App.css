@@ -55,13 +55,50 @@
     align-items: center;
     justify-content: center;
     font-size: small;
-    margin-bottom: 2rem; /* Espacement entre le graphique et le commentaire */
-
+    margin-bottom: 1rem; /* Espacement entre le graphique et le commentaire */
+    margin-top: 1rem; /* Espacement entre le graphique et le commentaire */
 }
 
 .commentaireD p {
     font-size: 1rem;
 }
+
+/* Conteneur des carrés */
+.stat-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 20px;
+}
+
+/* Styles individuels pour chaque carré */
+.stat-carré {
+    background-color: white;
+    color: #312e2e;
+    padding: 20px;
+    margin: 5px;
+    flex-grow: 1;
+    text-align: center;
+    border-radius: 10px;
+    position: relative; /* Pour positionner l'image absolument à l'intérieur */
+}
+
+/* Style pour les images dans les carrés */
+.stat-carré img {
+    width: 50%; /* Assure que l'image remplit le carré */
+    height: auto; /* Maintient le ratio de l'image */
+    max-height: 100px; /* Ajustez en fonction de la hauteur souhaitée */
+    margin-bottom: 10px; /* Espacement entre l'image et le texte */
+}
+
+
+
+
+
+
+
 
 /* Média queries pour les écrans plus petits */
 @media (max-width: 768px) {
@@ -95,6 +132,10 @@ img {
 .maImage2 {
     width: 60%;
     height: auto;
+}
+.maImage3 {
+    width: 20%;
+    height: 10%;
 }
 .App {
     min-height: 100vh;
