@@ -101,7 +101,7 @@ const Stat= () => {
                 <>
                     {/* Graphique 1: Heures par Semaine par Salaire */}
                     <div className="titreD">
-                        <h3>Analyse de la relation entre le salaire et le nombre d'heures travaillées par semaine.</h3>
+                        <h3>Analyse de la relation entre le salaire et le nombre d'heures travaillées par semaine</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -123,11 +123,12 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Cette carte révèle des informations intéressantes, malgré l'absence de données pour certains pays. On constate que la France et l'Iran se distinguent par un salaire moyen avoisinant les 50 000 $ par an. En revanche, pour la majorité des autres pays représentés, le salaire moyen est plus proche des 30 000 $ par an.</p>                    </div>
+                        <p>Cette carte révèle des informations intéressantes, malgré l'absence de données pour certains pays. On constate que la France et l'Iran se distinguent par un salaire moyen avoisinant les 50 000 $ par an. En revanche, pour la majorité des autres pays représentés, le salaire moyen est plus proche des 30 000 $ par an.</p>
+                    </div>
 
                     {/* Graphique 3: Tranche Salariale par Race */}
                     <div className="titreD">
-                        <h3>Représentation des différentes éthnies et genres au sein des différentes tranches salariales.</h3>
+                        <h3>Représentation des différentes éthnies et genres au sein des différentes tranches salariales</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -141,7 +142,7 @@ const Stat= () => {
 
                     {/* Graphique 4: Capital Positif par Classe de Travail */}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction de la classe de travail.</h3>
+                        <h3>Représentation du capital en fonction de la classe de travail</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -155,7 +156,7 @@ const Stat= () => {
 
                     {/* Graphique 5: Capital Positif par Niveau d'Éducation */}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation.</h3>
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
