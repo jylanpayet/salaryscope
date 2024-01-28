@@ -13,7 +13,7 @@ Plotly
 Pour mettre en place et exécuter le projet localement, suivez ces étapes :
 
 Clonez le dépôt sur votre machine locale :
-git clone https://github.com/votre_username/votre_projet.git
+git clone https://github.com/jylanpayet/salaryscope.git
 
 Installez les dépendances requises:
 
