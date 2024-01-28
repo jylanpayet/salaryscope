@@ -73,7 +73,7 @@ const Stat= () => {
                 <>
                     {/* Graphique 1: Heures par Semaine par Salaire */}
                     <div className="titreD">
-                        <h3>Heures par Semaine par Salaire</h3>
+                        <h3>Analyse de la relation entre le nombre d'heures travaillées par semaine et le salaire.</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -82,7 +82,7 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Commentaire sur les heures par semaine par salaire</p>
+                        <p>Ce graphique est très intéressant puisqu'il nous permet de tirer 3 principales conclusions. Tout d'abord pour les classes de travail correspondants au gouvernement d'Etat et féderal, on a une corrélation entre le nombre d'heures travaillées et le salaire qui suit donc la loi de "qui travail plus touche plus". L'autre catégorie des personnes qui ne travaillent pas et qui ne touchent rien avec donc des courbes qui sont nulles et enfin l'autre grande majorité des classes de travail qui ont des courbes qui suivent plus ou moins la même loi que celle de la première catégorie </p>
                     </div>
 
                     {/* Graphique 2: Répartition des Salaires dans le Monde */}
@@ -96,26 +96,26 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Commentaire sur la répartition des salaires dans le monde</p>
+                        <p>Sur cette carte mise à part le fait que l'on ai pas de données pour tous les pays on peut tout de même constater que seul la france et l'iran ont un salaire moyen qui tourne autour de 50 K $ par an sinon la plupart des autres pays ont un salaire moyen avoisinant les 30 K $ par an </p>
                     </div>
 
                     {/* Graphique 3: Tranche Salariale par Race */}
                     <div className="titreD">
-                        <h3>Tranche Salariale par Race</h3>
+                        <h3>Représentation des différentes races et sexes au sein de chaque tranche salariales</h3>
                     </div>
-                    <div className="plot-container">
+                    <div className="plot-container">²
                         <Plot
                             data={graphs.trancheSalary.data}
                             layout={graphs.trancheSalary.layout}
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Commentaire sur la tranche salariale par race</p>
+                        <p>Pour cette analyse on ne peut qu'avoir une conclusion choquante qui est que pour un salaire moyen supérieur ou inférieur à 50 k $ par an c'est toujours la race blanche qui touche le plus</p>
                     </div>
 
                     {/* Graphique 4: Capital Positif par Classe de Travail */}
                     <div className="titreD">
-                        <h3>Capital Positif par Classe de Travail</h3>
+                        <h3>Représentation du captial par Classe de Travail</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -124,12 +124,12 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Commentaire sur le capital positif par classe de travail</p>
+                        <p>Le secteur privé semble être la classe de travail qui fait rentrer le plus de capital suivi par l'auto-entrepreunariat</p>
                     </div>
 
                     {/* Graphique 5: Capital Positif par Niveau d'Éducation */}
                     <div className="titreD">
-                        <h3>Capital Positif par Niveau d'Éducation</h3>
+                        <h3>Représentation du capital par Niveau d'Éducation</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -138,7 +138,7 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>Commentaire sur le capital positif par niveau d'éducation</p>
+                        <p>Ici on voit bien que la plupart des personnes qui ont un capital élevé correspond à ceux qui ont un haut niveau d'étude mais on peut tout autant souligner que ce sont elles aussi qui sont le plus à même d avoir des pertes de capital</p>
                     </div>
                 </>
             )}
