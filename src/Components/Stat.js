@@ -5,7 +5,7 @@ import Plot from "react-plotly.js";
 
 const Stat= () => {
     const [graphs, setGraphs] = useState(null);
-
+    const [test,setTest] = useState(null)
     useEffect(() => {
         const getData = async () => {
             try {
@@ -21,7 +21,20 @@ const Stat= () => {
                 console.error("Erreur lors de la récupération des données : ", error);
             }
         };
+        const getStat = async () => {
+            try {
+                const { data } = await axios.get('/stats');
+                setTest({
+                    age_mean:JSON.parse(data.age_mean),
+                    user_nbr:JSON.parse(data.user_nbr),
+                    salary_mean:JSON.parse(data.salary_mean)
+                });
+            } catch (error) {
+                console.error("Erreur lors de la récupération des données : ", error);
+            }
+        };
         getData();
+        getStat();
     }, []);
     return (
         <div className="dashboard">
@@ -43,31 +56,41 @@ const Stat= () => {
                     <img src={BannerImage2} alt="" className="maImage3"/>
                 </div>
             </div>
+            {test && (
             <div className="stat-container">
+                 {/* Carré 2 */}
+                 <div className="stat-carré">
+                    <img src={BannerImage2} alt="Description pour image 2"/>
+                    <p>Utilisateurs ayant participés: {test.user_nbr}</p>
+                </div>
+
                 {/* Carré 1 */}
                 <div className="stat-carré">
                     <img src={BannerImage2} alt="Description pour image 1"/>
-                    <p>75%</p>
+                     <p>Age moyen des Femmes: {test.age_mean.age[" Female"].toFixed(2)} ans</p>
+                </div>
+                 {/* Carré 5 */}
+                 <div className="stat-carré">
+                    <img src={BannerImage2} alt="Description pour image 4"/>
+                    <p><p>Age moyen des Hommes: {test.age_mean.age[" Male"].toFixed(2)} ans</p></p>
                 </div>
 
-                {/* Carré 2 */}
-                <div className="stat-carré">
-                    <img src={BannerImage2} alt="Description pour image 2"/>
-                    <p>50%</p>
-                </div>
-
+               
                 {/* Carré 3 */}
                 <div className="stat-carré">
                     <img src={BannerImage2} alt="Description pour image 3"/>
-                    <p>25%</p>
+                    <p>Salaire moyen des Hommes: {test.salary_mean[" Male"].toFixed(2) * 100000} $</p>
                 </div>
-
                 {/* Carré 4 */}
                 <div className="stat-carré">
-                    <img src={BannerImage2} alt="Description pour image 4"/>
-                    <p>85%</p>
+                    <img src={BannerImage2} alt="Description pour image 3"/>
+                    <p>Salaire moyen des Femmes: {test.salary_mean[" Female"].toFixed(2)*100000} $</p>
                 </div>
+
+
+               
             </div>
+            )}
 
             {graphs && (
                 <>

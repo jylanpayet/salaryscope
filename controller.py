@@ -20,6 +20,14 @@ def visualization():
                     "positiveCapitalByEducation":positiveCapitalByEducation
                     })
 
+@app.route("/stats")
+def stat():
+    age_mean,user_nbr,salary_mean = vis.stats()
+    return jsonify({
+        "age_mean":age_mean.to_json(),
+        "user_nbr":user_nbr,
+        "salary_mean":salary_mean.to_json()
+    })
 if __name__ == "__main__":
     app.run(debug=True)
     

@@ -10,6 +10,12 @@ class Visualization:
         self.df['positive_capital'] = self.df['capital-gain'].apply(lambda x: x if x > 0 else 0)
         self.df['negative_capital'] = self.df['capital-loss'].apply(lambda x: -x if x > 0 else 0)
 
+    def stats(self):
+        age_mean = self.df[["sex","age"]].groupby("sex").mean()
+        user_nbr = self.df.shape[0]
+        salary_mean = self.df.groupby('sex')['salary_numeric'].mean()
+        return (age_mean,user_nbr,salary_mean)
+    
     def heuresParSemaineBySalary(self):
         fig_hours_salary = px.scatter(self.df, x='hours-per-week', y='salary_numeric', 
                                     color='workclass', 
