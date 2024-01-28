@@ -13,7 +13,6 @@ class Visualization:
     def heuresParSemaineBySalary(self):
         fig_hours_salary = px.scatter(self.df, x='hours-per-week', y='salary_numeric', 
                                     color='workclass', 
-                                    title='Relation entre les heures travaillées par semaine, le salaire et la classe de travail',
                                     labels={'hours-per-week': 'Heures travaillées par semaine',
                                             'salary_numeric': 'Salaire (1: >50K, 0: <=50K)',
                                             'workclass': 'Classe de travail'},
@@ -31,7 +30,6 @@ class Visualization:
         avg_salary_by_country['salary_numeric'] *= 100
         fig_geo_salary = px.choropleth(avg_salary_by_country, locations="native-country", 
                            locationmode='country names', color="salary_numeric", 
-                           title="Répartition de la main d’œuvre et salaires moyens par pays",
                            color_continuous_scale=px.colors.sequential.Plasma)
         
         return fig_geo_salary
@@ -39,16 +37,15 @@ class Visualization:
     def trancheSalarialParRace(self):
         race_gender_salary = self.df.groupby(['race', 'sex', 'salary']).size().reset_index(name='count')
         fig_race_gender_salary = px.bar(race_gender_salary, x="race", y="count", color="sex",
-                                facet_col="salary", title=" Représentation de la race et du sexe dans les différentes tranches salariales",
-                                labels={'count':'Count', 'race':'Race', 'sex':'Gender', 'salary':'Salary Bracket'})
+                                facet_col="salary",labels={'count':'Count', 'race':'Race', 'sex':'Gender', 'salary':'Salary Bracket'})
         return fig_race_gender_salary
 
 
     def positive_capital_by_workclass(self):
-        fig_workclass = px.histogram(self.df, x="workclass", y=["positive_capital", "negative_capital"],color_discrete_sequence=["green", "red"],title="Gains et pertes en capital par classe de travail")
+        fig_workclass = px.histogram(self.df, x="workclass", y=["positive_capital", "negative_capital"],color_discrete_sequence=["green", "red"])
         return fig_workclass
     
     def positive_capital_by_education(self):
-        fig_education = px.histogram(self.df, x="education", y=["positive_capital", "negative_capital"],color_discrete_sequence=["blue", "orange"],title="Gains et pertes en capital par niveau d'éducation") 
+        fig_education = px.histogram(self.df, x="education", y=["positive_capital", "negative_capital"],color_discrete_sequence=["blue", "orange"]) 
         return fig_education
     
