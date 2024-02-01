@@ -1,10 +1,13 @@
 from flask import Flask, jsonify, request
 import json
 import plotly.utils
-from dataVisualization import Visualization  
+from dataVisualization import Visualization
+from joblib import load
 
 app = Flask(__name__)
 vis = Visualization()
+modeleSVC = load('model_SVC.joblib')
+modeleRandom = load('modelRegression.joblib')
 
 @app.route("/visualization")
 def visualization():
@@ -28,6 +31,19 @@ def stat():
         "user_nbr":user_nbr,
         "salary_mean":salary_mean.to_json()
     })
+
+
+@app.route('/prediction')
+def prediction():
+    modele_SVC = modeleSVC
+    modele_Random = modeleRandom
+    print(modele_SVC)
+    print(modele_Random)
+    return jsonify({
+        "test":"ls"
+    })
+
+
 if __name__ == "__main__":
     app.run(debug=True)
     
