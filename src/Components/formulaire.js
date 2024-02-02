@@ -36,8 +36,8 @@ const raceOptions = [
 ];
 
 const sexOptions = [
-    { value: 'Male', label: 'Male' },
-    { value: 'Female', label: 'Female' },
+    { value: 'Male', label: 'Homme' },
+    { value: 'Female', label: 'Femme' },
 ];
 
 const AgeOptions = Array.from({ length: 101 }, (_, index) => ({
@@ -68,13 +68,14 @@ function FormulaireUn() {
         race: race.value,
         gender: sex.value,
         years_of_experience: years_of_experience.value,
-        age: age.value
+        age: age.value,
+        senior:senior.value
     }).toString();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.get('/prediction', {
-            params: formData,
+            params: formData
         })
             .then((response) => {
                 console.log('Réponse du serveur :', response.data);
