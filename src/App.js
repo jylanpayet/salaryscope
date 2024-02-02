@@ -3,9 +3,10 @@ import Home from "./Components/Home"
 import About from "./Components/About";
 import Work from "./Components/Work";
 import Footer from "./Components/Footer";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Stat from "./Components/Stat";
+import FormulaireUn from "./Components/formulaire";
 import React from 'react';
 
 function Accueil() {
@@ -24,6 +25,13 @@ function Statistique() {
         </div>
     );
 }
+function FormuUn() {
+    return (
+        <div>
+            <FormulaireUn/>
+        </div>
+    );
+}
 
 function App() {
     return (
@@ -34,6 +42,7 @@ function App() {
                 <Routes>
                     <Route path="/stat" element={<Statistique/>}/>
                     <Route path="/" element={<Accueil/>}/>
+                    <Route path="/formulaireun" element={<FormuUn/>}/>
                 </Routes>
                 <Footer/>
             </div>

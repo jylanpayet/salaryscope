@@ -4,6 +4,78 @@
     box-sizing: border-box;
     font-family: "Reem Kufi", sans-serif !important;
 }
+/* Styles pour le conteneur du formulaire avec fond gris */
+.form-container {
+    background-color: #f6f6f6; /* Gris clair, ajustez selon vos préférences */
+    padding: 20px;
+    border-radius: 8px;
+    border: #232121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+}
+.form {
+    background-color: #f6f6f6;
+    padding: 2rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px;
+    margin: 20px auto;
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #312e2e; /* Couleur de texte similaire à celle de votre site */
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: #312e2e;
+}
+
+button[type="submit"] {
+    background-color: #e36fff; /* Utilise la couleur du bouton primaire de votre site */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #c32ce6; /* Assombrit légèrement la couleur au survol */
+}
+
+/* Média queries pour ajuster le layout sur des écrans plus petits */
+@media (max-width: 768px) {
+    .form {
+        padding: 1.5rem;
+    }
+
+    .form-group label, .form-group select, button[type="submit"] {
+        font-size: 0.9rem; /* Ajuste la taille de la police pour les petits écrans */
+    }
+}
+
+
+
 /* Styles généraux du tableau de bord */
 
 
