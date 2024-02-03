@@ -62,39 +62,39 @@ const Stat= () => {
                 </div>
             </div>
             {test && (
-            <div className="stat-container">
-                 {/* Carré 2 */}
-                 <div className="stat-carré">
-                    <img src={BannerImage3} alt="Description pour image 2"/>
-                    <p>Participants à l'étude: <strong>{test.user_nbr} </strong></p>
-                 </div>
+                <div className="stat-container">
+                    {/* Carré 2 */}
+                    <div className="stat-carré">
+                        <img src={BannerImage3} alt="Description pour image 2"/>
+                        <p>Participants à l'étude: <strong>{test.user_nbr} </strong></p>
+                    </div>
 
-                {/* Carré 1 */}
-                <div className="stat-carré">
-                    <img src={BannerImage4} alt="Description pour image 1"/>
-                     <p>Moyenne d'age femme: <strong>{test.age_mean.age[" Female"].toFixed(2)} ans</strong></p>
+                    {/* Carré 1 */}
+                    <div className="stat-carré">
+                        <img src={BannerImage4} alt="Description pour image 1"/>
+                        <p>Moyenne d'age femme: <strong>{test.age_mean.age[" Female"].toFixed(2)} ans</strong></p>
+                    </div>
+                    {/* Carré 5 */}
+                    <div className="stat-carré">
+                        <img src={BannerImage4} alt="Description pour image 4"/>
+                        <p><p>Moyenne d'age homme: <strong>{test.age_mean.age[" Male"].toFixed(2)} ans</strong></p></p>
+                    </div>
+
+
+                    {/* Carré 3 */}
+                    <div className="stat-carré">
+                        <img src={BannerImage5} alt="Description pour image 3"/>
+                        <p>Salaire moyen des Hommes: <strong>{test.salary_mean[" Male"].toFixed(2) * 100000} $</strong></p>
+                    </div>
+                    {/* Carré 4 */}
+                    <div className="stat-carré">
+                        <img src={BannerImage6} alt="Description pour image 3"/>
+                        <p>Salaire moyen des Femmes: <strong>{test.salary_mean[" Female"].toFixed(2) * 100000} $</strong></p>
+                    </div>
+
+
+
                 </div>
-                 {/* Carré 5 */}
-                 <div className="stat-carré">
-                    <img src={BannerImage4} alt="Description pour image 4"/>
-                    <p><p>Moyenne d'age homme: <strong>{test.age_mean.age[" Male"].toFixed(2)} ans</strong></p></p>
-                 </div>
-
-
-                {/* Carré 3 */}
-                <div className="stat-carré">
-                    <img src={BannerImage5} alt="Description pour image 3"/>
-                    <p>Salaire moyen des Hommes: <strong>{test.salary_mean[" Male"].toFixed(2) * 100000} $</strong></p>
-                </div>
-                {/* Carré 4 */}
-                <div className="stat-carré">
-                <img src={BannerImage6} alt="Description pour image 3"/>
-                    <p>Salaire moyen des Femmes: <strong>{test.salary_mean[" Female"].toFixed(2) * 100000} $</strong></p>
-                </div>
-
-
-
-            </div>
             )}
 
             {graphs && (

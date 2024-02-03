@@ -6,9 +6,6 @@ import {
     Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import CommentRoundedIcon from "@mui/icons-material/CommentRounded";
-import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
-import ShoppingCartRoundedIcon from "@mui/icons-material/ShoppingCartRounded";
 import {Link} from "react-router-dom";
 
 
@@ -32,7 +29,7 @@ const Navbar= () => {
         <div className="navbar-links-container">
             <a href=""><Link to="/">Accueil</Link></a>
             <a href=""><Link to="/stat">Statistique</Link></a>
-            <button className="primary-button">Essayez maintenant</button>
+            <Link to="/formulaireun"><button className="primary-button" >Essayez maintenant</button></Link>
         </div>
         <div className="navbar-menu-container">
             <HiOutlineBars3 onClick={() => setOpenMenu(true)}/>
@@ -42,17 +39,17 @@ const Navbar= () => {
                  role="presentation"
                  onClick={() => setOpenMenu(false)}
                  onKeyDown={() => setOpenMenu(false)}>
-              <List>
-                  {menuOptions.map((item) =>
-                      (<ListItem key={item.text} disablePadding>
-                          <ListItemButton>
-                              <ListItemIcon>{item.icon}</ListItemIcon>
-                              <ListItemText primary={item.text}/>
+                <List>
+                    {menuOptions.map((item) =>
+                        (<ListItem key={item.text} disablePadding>
+                                <ListItemButton>
+                                    <ListItemIcon>{item.icon}</ListItemIcon>
+                                    <ListItemText primary={item.text}/>
 
-                          </ListItemButton>
-                          </ListItem>
-                      ))}
-              </List>
+                                </ListItemButton>
+                            </ListItem>
+                        ))}
+                </List>
 
             </Box>
         </Drawer>

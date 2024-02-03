@@ -1,7 +1,7 @@
 import React from "react"
-import Navbar from "./Navbar"
 import BannerImage from "../Assets/home-banner-image.png"
 import {FiArrowRight} from "react-icons/fi";
+import {Link} from "react-router-dom";
 const Home= () => {
     return (<div className="home-container">
             <div className="home-banner-container">
@@ -15,9 +15,11 @@ const Home= () => {
                         Découvrez ce que l'avenir vous réserve en matière de rémunération grâce à notre intelligence
                         artificielle avancée.
                     </p>
-                    <button className="secondary-button">
-                        Essayez maintenant <FiArrowRight/>
-                    </button>
+                    <Link to="/formulaireun" style={{ textDecoration: 'none' }}>
+                        <button className="secondary-button">
+                            Essayez maintenant <FiArrowRight/>
+                        </button>
+                    </Link>
                     <div className="home-image-container">
                     </div>
                 </div>

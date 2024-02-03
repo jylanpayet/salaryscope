@@ -4,6 +4,15 @@
     box-sizing: border-box;
     font-family: "Reem Kufi", sans-serif !important;
 }
+
+.coucou {
+    margin: auto;
+    padding-top: 40px;
+    text-align: center;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: #312e2e;
+}
+
 /* Styles pour le conteneur du formulaire avec fond gris */
 .form-container {
     background-color: #f6f6f6; /* Gris clair, ajustez selon vos préférences */
@@ -13,7 +22,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 40px auto;
 }
 .form {
     background-color: #f6f6f6;
@@ -309,6 +317,7 @@ nav {
     align-items: center;
     justify-content: center;
 }
+
 .secondary-button svg {
     margin-left: 0.75rem;
     font-size: 1.5rem;
