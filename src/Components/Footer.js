@@ -24,7 +24,6 @@ const Footer = () => {
                     <span>Qualité</span>
                     <span>Aide</span>
                     <span>Partage</span>
-                    <span>Work</span>
                 </div>
                 <div className="footer-section-columns">
                     <span>06 02 03 04 05</span>

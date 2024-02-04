@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import Stat from "./Components/Stat";
 import FormulaireUn from "./Components/formulaire";
+import ResultatUn from "./Components/resultat";
 import React from 'react';
 
 function Accueil() {
@@ -33,6 +34,14 @@ function FormuUn() {
     );
 }
 
+function Resultat(){
+    return (
+        <div>
+            <ResultatUn/>
+        </div>
+    );
+}
+
 function App() {
     return (
         <Router>
@@ -43,6 +52,7 @@ function App() {
                     <Route path="/stat" element={<Statistique/>}/>
                     <Route path="/" element={<Accueil/>}/>
                     <Route path="/formulaireun" element={<FormuUn/>}/>
+                    <Route path="/resultat/:salaire" element={<Resultat/>}/>
                 </Routes>
                 <Footer/>
             </div>

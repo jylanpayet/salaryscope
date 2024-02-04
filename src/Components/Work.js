@@ -1,23 +1,22 @@
 import React from "react";
-import PickMeals from "../Assets/pick-meals-image.png"
-import ChooseMeals from "../Assets/choose-image.png"
-import DeliveryMeals from "../Assets/delivery-image.png"
-import HomeIcon from "@mui/icons-material/Home";
+import Questionnaire from "../Assets/pick-meals-image.png"
+import Performance from "../Assets/choose-image.png"
+import Lac from "../Assets/delivery-image.png"
 
 const Work= () => {
     const workInfoData= [
         {
-            image: PickMeals,
+            image: Questionnaire,
             title: "Questionnaire rapide",
             text: "Des questions vous seront posées pour pouvoir obtenir la meilleure précision possible."
         },
         {
-            image: ChooseMeals,
+            image: Performance,
             title: "Performance",
             text: "Un outils de machine learning performant pour répondre à vos attentes."
         },
         {
-            image: DeliveryMeals,
+            image: Lac,
             title: "Grande source de données",
             text: "Une analyse détaillée avec des visualiations."
         }

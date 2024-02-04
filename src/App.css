@@ -4,6 +4,34 @@
     box-sizing: border-box;
     font-family: "Reem Kufi", sans-serif !important;
 }
+.resultat {
+    display: flex; /* Active Flexbox */
+    align-items: center; /* Centre les éléments verticalement */
+    justify-content: space-around; /* Distribue l'espace autour des éléments */
+    padding: 40px 20px; /* Ajoute un peu d'espace */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne sur les petits écrans */
+}
+
+.resultat h1 {
+    font-size: clamp(2.5rem, 2.5vw, 3rem); /* Ajustement dynamique de la taille */
+    max-width: 600px; /* Limite la largeur du texte pour éviter qu'il ne soit trop étiré */
+    margin-left: 20px; /* Ajoute un peu d'espace à gauche pour déplacer le texte vers la droite */
+}
+
+.maImage4 {
+    max-width: 500px; /* Limite la taille de l'image */
+    margin: 0 auto; /* Centre l'image dans son conteneur */
+    padding: 20px; /* Ajoute de l'espace autour de l'image */
+    margin-left: auto; /* Pousse l'image vers la droite */
+    margin-right: 0; /* Ajuste si nécessaire pour aligner à droite */
+}
+
+.resultat span {
+    color: #e36fff; /* Met en évidence le salaire avec la couleur du bouton soumettre */
+    font-weight: bold; /* Rend le salaire plus lisible */
+}
+
+
 
 .coucou {
     margin: auto;

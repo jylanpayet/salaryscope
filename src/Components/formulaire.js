@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Select from 'react-select';
 import axios from "axios";
 import {FiArrowRight} from "react-icons/fi";
+import { Navigate } from 'react-router-dom';
 
 const countryOptions = [
     { value: 'UK', label: 'UK' },
@@ -190,6 +191,7 @@ function FormulaireUn() {
     const [age, setAge] = useState('');
     const [years_of_experience, setAgeXP] = useState('');
     const [senior, setSenior] = useState('');
+    const [redirectTo, setRedirectTo] = useState(null);
 
 
     const formData = new URLSearchParams({
@@ -209,13 +211,18 @@ function FormulaireUn() {
             params: formData
         })
             .then((response) => {
-                console.log('Réponse du serveur :', response.data);
+                const salaire = response.data.Prediction;
+                console.log(salaire);
+                setRedirectTo(`/resultat/${salaire}`);
             })
             .catch((error) => {
                 console.error('Erreur lors de la requête :', error);
             });
     };
 
+    if (redirectTo) {
+        return <Navigate to={redirectTo} replace={true} />;
+    }
     return (
         <div>
             <p className="coucou">Veuillez remplir le formulaire ci-dessous, les données doivent être précises pour un résultat optimal. </p>
