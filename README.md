@@ -31,9 +31,9 @@
 <p align="center">
 <a href="https://ibb.co/J5kGTtv"><img src="https://i.ibb.co/qk1c8jN/Capture-d-cran-2024-02-05-00-37-51.png" alt="Capture-d-cran-2024-02-05-00-37-51" border="0"></a></p>
 
-SalaryScope a été réalisé suite au cours de PSID:
+Qu'est-ce que SalaryScope ?
 
-Ce projet vise à développer un modèle prédictif capable d'estimer le salaire d'une personne en fonction de divers paramètres. Ces paramètres peuvent inclure le niveau d'éducation, l'expérience professionnelle, l'industrie de travail, la localisation géographique, et d'autres facteurs pertinents qui influencent le salaire. En utilisant des techniques de machine learning et d'analyse de données, le modèle analysera les tendances et les patterns dans les données historiques pour faire des prédictions précises sur les salaires. L'objectif est de fournir un outil utile pour les individus évaluant leurs perspectives de carrière et pour les employeurs fixant des salaires compétitifs.
+_Ce projet vise à développer un modèle prédictif capable d'estimer le salaire d'une personne en fonction de divers paramètres. Ces paramètres peuvent inclure le niveau d'éducation, l'expérience professionnelle, l'industrie de travail, la localisation géographique, et d'autres facteurs pertinents qui influencent le salaire. En utilisant des techniques de machine learning et d'analyse de données, le modèle analysera les tendances et les patterns dans les données historiques pour faire des prédictions précises sur les salaires. L'objectif est de fournir un outil utile pour les individus évaluant leurs perspectives de carrière et pour les employeurs fixant des salaires compétitifs._
 
 Quelques fonctionnalités abordées :
 
@@ -78,14 +78,15 @@ source nom_env/bin/activate
 pip install plotly matplotlib pandas flask statsmodels
 python3 controller.py
 ```
-NB : Il est éventiellement possible que d'autres pip install soit nécessaire.
+NB : _Il est éventiellement possible que d'autres pip install / npm install soit nécessaire._
 
 ## <div id="tests">Les tests à réaliser</div>
 
 *Lien de la vidéo que nous allons communiquer*
 
 https://drive.google.com/drive/folders/1JOJ6Uj7dWuRB6sITIO3DGJYZIrJUxa-v?usp=share_link
-Le fichier csv et les models seront bientot présent sur le dépot git.
+
+Le fichier csv utilisé et les models de machine learning seront bientot présent sur le dépot git.
 ## <div id="issues">TODO</div>
 #### <ins>_Les différentes idées possibles à intégrer_</ins> :
 - Partie encore en cours...
