@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import BannerImage from "../Assets/briefcase_115190.png";
+import BannerImage2 from "../Assets/money.png";
+
 
 function ResultatUn() {
     let { salaire } = useParams();
@@ -25,12 +27,20 @@ function ResultatUn() {
             return () => clearInterval(interval);
         }
     }, [salaire]);
+    const [currentImage, setCurrentImage] = useState(BannerImage);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prevImage) => (prevImage === BannerImage ? BannerImage2 : BannerImage));
+        }, 5000);
+
+        return () => clearInterval(interval);
+    }, []);
     return (
         <div className="resultat">
             <h1>Votre potentiel salaire s'élève à <span>{Math.round(animatedSalaire)} $</span>, d'après notre modèle intelligent.</h1>
             <div className="maImage4">
-                <img src={BannerImage} alt="Briefcase"/>
+                <img src={currentImage} alt="Switching Image"/>
             </div>
         </div>
     );
