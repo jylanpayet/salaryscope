@@ -172,26 +172,22 @@ const AgeOptions = Array.from({ length: 101 }, (_, index) => ({
 
 
 function FormulaireUn() {
-    const [country, setCountry] = useState('');
     const [education, setEducation] = useState('');
     const [job, setJob] = useState('');
     const [race, setRace] = useState('');
     const [sex, setSex] = useState('');
     const [age, setAge] = useState('');
     const [years_of_experience, setAgeXP] = useState('');
-    const [senior, setSenior] = useState('');
     const [redirectTo, setRedirectTo] = useState(null);
 
 
     const formData = new URLSearchParams({
-        country: country.value,
         education_level: education.value,
         job_title: job.value,
         race: race.value,
         gender: sex.value,
         years_of_experience: years_of_experience.value,
         age: age.value,
-        senior:senior.value
     });
 
     const handleSubmit = async (e) => {
