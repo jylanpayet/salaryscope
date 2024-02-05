@@ -8,9 +8,13 @@ import pandas as pd
 
 app = Flask(__name__)
 vis = Visualization()
+
 modeleSVC = load('model_SVC.joblib')
-modeleRandom = load('modelRegression.joblib')
-column_names = pd.read_csv('columns.csv', header=None).squeeze()
+# Charger les modèles et transformateurs
+modeleRandom = load('model11.joblib')
+encoding = load('encoding.joblib')
+scaler = load('scaler.joblib')
+pca = load('pca.joblib')
 
 @app.route("/visualization")
 def visualization():
@@ -36,38 +40,30 @@ def stat():
     })
 
 
-@app.route('/prediction',methods=["GET"])
+@app.route('/prediction', methods=["GET"])
 def prediction():
-    gender = request.args.get('gender', type=str)
-    education_level = request.args.get('education_level', type=int)
-    job_title = request.args.get('job_title', type=str)
-    country = request.args.get('country', type=str)
-    race = request.args.get('race', type=str)
-    age = request.args.get('age', type=int)
-    years_of_experience = request.args.get('years_of_experience', type=int)
-    senior = request.args.get('senior', type=int)
-    modele_Random = modeleRandom
-    local_empty_df = pd.DataFrame(columns=column_names)
-    local_empty_df = local_empty_df.drop(local_empty_df.columns[0], axis=1)
-    local_empty_df = local_empty_df.drop(['Salary'],axis=1)
-    local_empty_df.loc[0] = False
-    local_empty_df.at[0, f'Gender_{gender}'] = True
-    local_empty_df.at[0, 'Senior'] = senior
-    local_empty_df.at[0, f'Education Level_{education_level}'] = True
-    local_empty_df.at[0, f'Job Title_{job_title}'] = True
-    local_empty_df.at[0, f'Country_{country}'] = True
-    local_empty_df.at[0, f'Race_{race}'] = True
-    local_empty_df.at[0, 'Age'] = age
-    local_empty_df.at[0, 'Years of Experience'] = years_of_experience
-    scaler = StandardScaler()
+    data = {
+        "Age" : request.args.get('age', type=int),
+        "Gender":request.args.get('gender', type=str),
+        "Education Level" :request.args.get('education_level', type=int),
+        "Job Title" : request.args.get('job_title', type=str),
+        "Years of Experience" : request.args.get('years_of_experience', type=str),   
+        "Race" : request.args.get('race', type=str)} 
+    local_empty_df = pd.DataFrame([data])
+    print(local_empty_df)
+    encode = ["Gender", "Education Level", "Job Title", "Race"]
     columns_need_scaling = ["Age", "Years of Experience"]
-    local_empty_df[columns_need_scaling] = scaler.fit_transform(local_empty_df[columns_need_scaling])
-    Y_pred = modele_Random.predict(local_empty_df)
+    local_empty_df[encode] = encoding.transform(local_empty_df[encode])
+    local_empty_df[columns_need_scaling] = scaler.transform(local_empty_df[columns_need_scaling])
+    pca.transform(local_empty_df)
+    Y_pred = modeleRandom.predict(local_empty_df)
     return jsonify({
         "Prediction":Y_pred[0]
     })
 
 
+
 if __name__ == "__main__":
     app.run(debug=True)
-    
+
+
