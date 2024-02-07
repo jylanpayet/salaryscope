@@ -202,14 +202,12 @@ function FormulaireUn() {
                     pathname: `/resultat`,
                     state: {
                         salaire: salaire,
-                        country: country.value,
                         education_level: education.value,
                         job_title: job.value,
                         race: race.value,
                         gender: sex.value,
                         years_of_experience: years_of_experience.value,
                         age: age.value,
-                        senior: senior.value
                     }
                 });
             })
@@ -227,17 +225,6 @@ function FormulaireUn() {
             <p className="coucou">Veuillez remplir le formulaire ci-dessous, les données doivent être précises pour un résultat optimal. </p>
             <div className="form-container">
                 <form onSubmit={handleSubmit} className="form">
-                    
-                    <div className="form-group">
-                        <label htmlFor="education">Niveau</label>
-                        <Select
-                            id="education"
-                            placeholder="Diplôme"
-                            options={educationOptions}
-                            value={education}
-                            onChange={setEducation}
-                        />
-                    </div>
 
                     <div className="form-group">
                         <label htmlFor="job">Titre du métier</label>
@@ -250,18 +237,6 @@ function FormulaireUn() {
                             isSearchable={true}
                         />
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="race">Éthnie</label>
-                        <Select
-                            id="race"
-                            placeholder="Selection d'éthnie"
-                            options={raceOptions}
-                            value={race}
-                            onChange={setRace}
-                        />
-                    </div>
-
                     <div className="form-group">
                         <label htmlFor="sex">Sexe</label>
                         <Select
@@ -283,6 +258,29 @@ function FormulaireUn() {
                             onChange={setAge}
                         />
                     </div>
+
+                    <div className="form-group">
+                        <label htmlFor="race">Éthnie</label>
+                        <Select
+                            id="race"
+                            placeholder="Selection d'éthnie"
+                            options={raceOptions}
+                            value={race}
+                            onChange={setRace}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="education">Niveau</label>
+                        <Select
+                            id="education"
+                            placeholder="Diplôme"
+                            options={educationOptions}
+                            value={education}
+                            onChange={setEducation}
+                        />
+                    </div>
+
 
                     <div className="form-group">
                         <label htmlFor="years_of_experience">Année d'expérience</label>

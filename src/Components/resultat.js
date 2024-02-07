@@ -53,16 +53,7 @@ function ResultatUn() {
                 return 'Information non disponible';
         }
     }
-    function getSeniorText(senior) {
-        switch (senior) {
-            case '0':
-                return 'Débutant';
-            case '1':
-                return 'Senior';
-            default:
-                return 'Information non disponible';
-        }
-    }
+
     function getImageBasedOnGender(gender) {
         switch (gender) {
             case 'Male':
@@ -83,14 +74,13 @@ function ResultatUn() {
                 </div>
             </div>
             <div className="profil-container">
-                <h2>{job_title}</h2>
                 <img src={getImageBasedOnGender(gender)} alt="Genre"/>
-                <p><strong>Pays:</strong> {country}</p>
-                <p><strong>Niveau d'éducation:</strong> {getEducationLevelText(education_level)}</p>
-                <p><strong>Éthnie:</strong> {race}</p>
-                <p><strong>Années d'expérience:</strong> {years_of_experience} année(s)</p>
+                <h2>{job_title}</h2>
                 <p><strong>Âge:</strong> {age} ans</p>
-                <p><strong>Ancienneté:</strong> {getSeniorText(senior)}</p>
+                <p><strong>Niveau d'éducation:</strong> {getEducationLevelText(education_level)}</p>
+                <p><strong>Années d'expérience:</strong> {years_of_experience} année(s)</p>
+                <p><strong>Éthnie:</strong> {race}</p>
+
             </div>
         </div>
     );
