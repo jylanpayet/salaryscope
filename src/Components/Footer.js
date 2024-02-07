@@ -26,13 +26,14 @@ const Footer = () => {
                     <span>Partage</span>
                 </div>
                 <div className="footer-section-columns">
-                    <span>06 02 03 04 05</span>
-                    <span>hello@srs.com</span>
-                    <span>press@srs.com</span>
-                    <span>contact@srs.com</span>
+                    <span>42010792@parisnanterre.fr</span>
+                    <span>39007630@parisnanterre.fr</span>
+                    <span>42002291@parisnanterre.fr</span>
+                    <span>42010596@parisnanterre.fr</span>
+
                 </div>
                 <div className="footer-section-columns">
-                    <span>Terms & Conditions</span>
+                <span>Terms & Conditions</span>
                     <span>Privacy Policy</span>
                 </div>
             </div>

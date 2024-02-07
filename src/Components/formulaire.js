@@ -212,8 +212,21 @@ function FormulaireUn() {
         })
             .then((response) => {
                 const salaire = response.data.Prediction;
-                console.log(salaire);
-                setRedirectTo(`/resultat/${salaire}`);
+                // Inclure toutes les données du formulaire et le salaire dans l'objet de redirection
+                setRedirectTo({
+                    pathname: `/resultat`,
+                    state: {
+                        salaire: salaire,
+                        country: country.value,
+                        education_level: education.value,
+                        job_title: job.value,
+                        race: race.value,
+                        gender: sex.value,
+                        years_of_experience: years_of_experience.value,
+                        age: age.value,
+                        senior: senior.value
+                    }
+                });
             })
             .catch((error) => {
                 console.error('Erreur lors de la requête :', error);
@@ -221,7 +234,7 @@ function FormulaireUn() {
     };
 
     if (redirectTo) {
-        return <Navigate to={redirectTo} replace={true} />;
+        return <Navigate to={redirectTo.pathname} state={redirectTo.state} replace={true} />;
     }
     return (
         <div>

@@ -52,7 +52,7 @@ function App() {
                     <Route path="/stat" element={<Statistique/>}/>
                     <Route path="/" element={<Accueil/>}/>
                     <Route path="/formulaireun" element={<FormuUn/>}/>
-                    <Route path="/resultat/:salaire" element={<Resultat/>}/>
+                    <Route path="/resultat" element={<Resultat/>}/>
                 </Routes>
                 <Footer/>
             </div>
