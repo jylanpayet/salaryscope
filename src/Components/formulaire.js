@@ -4,13 +4,6 @@ import axios from "axios";
 import {FiArrowRight} from "react-icons/fi";
 import { Navigate } from 'react-router-dom';
 
-const countryOptions = [
-    { value: 'UK', label: 'UK' },
-    { value: 'USA', label: 'USA' },
-    { value: 'Canada', label: 'Canada' },
-    { value: 'China', label: 'China' },
-    { value: 'Australia', label: 'Australia' },
-];
 
 const educationOptions = [
     { value: '0', label: 'Bac' },
@@ -177,32 +170,24 @@ const AgeOptions = Array.from({ length: 101 }, (_, index) => ({
     label: index.toString(),
 }));
 
-const SeniorOptions = [
-    { value: '0', label: 'Debutant' },
-    { value: '1', label: 'Senior' },
-];
 
 function FormulaireUn() {
-    const [country, setCountry] = useState('');
     const [education, setEducation] = useState('');
     const [job, setJob] = useState('');
     const [race, setRace] = useState('');
     const [sex, setSex] = useState('');
     const [age, setAge] = useState('');
     const [years_of_experience, setAgeXP] = useState('');
-    const [senior, setSenior] = useState('');
     const [redirectTo, setRedirectTo] = useState(null);
 
 
     const formData = new URLSearchParams({
-        country: country.value,
         education_level: education.value,
         job_title: job.value,
         race: race.value,
         gender: sex.value,
         years_of_experience: years_of_experience.value,
         age: age.value,
-        senior:senior.value
     });
 
     const handleSubmit = async (e) => {
@@ -242,17 +227,7 @@ function FormulaireUn() {
             <p className="coucou">Veuillez remplir le formulaire ci-dessous, les données doivent être précises pour un résultat optimal. </p>
             <div className="form-container">
                 <form onSubmit={handleSubmit} className="form">
-                    <div className="form-group">
-                        <label htmlFor="country">Pays</label>
-                        <Select
-                            id="country"
-                            placeholder="Selection de pays"
-                            options={countryOptions}
-                            value={country}
-                            onChange={setCountry}
-                        />
-                    </div>
-
+                    
                     <div className="form-group">
                         <label htmlFor="education">Niveau</label>
                         <Select
@@ -319,18 +294,7 @@ function FormulaireUn() {
                             onChange={setAgeXP}
                         />
                     </div>
-
-                    <div className="form-group">
-                        <label htmlFor="senior">Ancienneté</label>
-                        <Select
-                            id="senior"
-                            placeholder="Statut"
-                            value={senior}
-                            options={SeniorOptions}
-                            onChange={setSenior}
-                        />
-                    </div>
-                    <button type="submit">Submit <FiArrowRight/></button>
+                    <button type="submit">Prédisez votre Salaire <FiArrowRight/></button>
                 </form>
             </div>
         </div>
