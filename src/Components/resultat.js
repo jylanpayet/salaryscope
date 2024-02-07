@@ -92,7 +92,6 @@ function ResultatUn() {
                 <p><strong>Âge:</strong> {age} ans</p>
                 <p><strong>Ancienneté:</strong> {getSeniorText(senior)}</p>
             </div>
-
         </div>
     );
 }

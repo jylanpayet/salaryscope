@@ -22,6 +22,7 @@ const Navbar= () => {
             icon:<HomeIcon/>
         }
     ];
+
     return <nav>
         <div className="nav-logo-container">
             <img src={Logo} alt="" class="maImage"/>

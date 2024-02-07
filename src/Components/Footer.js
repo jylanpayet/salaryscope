@@ -33,7 +33,7 @@ const Footer = () => {
 
                 </div>
                 <div className="footer-section-columns">
-                <span>Terms & Conditions</span>
+                    <span>Terms & Conditions</span>
                     <span>Privacy Policy</span>
                 </div>
             </div>

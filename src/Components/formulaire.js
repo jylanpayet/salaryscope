@@ -236,6 +236,7 @@ function FormulaireUn() {
     if (redirectTo) {
         return <Navigate to={redirectTo.pathname} state={redirectTo.state} replace={true} />;
     }
+
     return (
         <div>
             <p className="coucou">Veuillez remplir le formulaire ci-dessous, les données doivent être précises pour un résultat optimal. </p>
