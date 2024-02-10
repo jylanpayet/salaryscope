@@ -3,11 +3,13 @@ import json
 import plotly.utils
 from sklearn.discriminant_analysis import StandardScaler
 from dataVisualization import Visualization
+from dataVisualization2 import Visualization2
 from joblib import load
 import pandas as pd
 
 app = Flask(__name__)
 vis = Visualization()
+vis2 = Visualization2()
 
 modeleSVC = load('model_SVC.joblib')
 # Charger les modèles et transformateurs
@@ -29,6 +31,19 @@ def visualization():
                     "heuresParSemaineBySalary":heuresParSemaineBySalary,
                     "positiveCapitalByEducation":positiveCapitalByEducation
                     })
+
+
+@app.route("/visualization2")
+def visualization2():
+    histoage = json.dumps(vis2.histoage(), cls=plotly.utils.PlotlyJSONEncoder)
+    boxplot_salary_jobcategory = json.dumps(vis2.boxplot_salary_jobcategory(), cls=plotly.utils.PlotlyJSONEncoder)
+    mean_salary_educationlevel = json.dumps(vis2.mean_salary_educationlevel(), cls=plotly.utils.PlotlyJSONEncoder)
+   
+    return jsonify({"histoage":histoage,
+                    "boxplot_salary_jobcategory":boxplot_salary_jobcategory,
+                    "mean_salary_educationlevel":mean_salary_educationlevel,
+                
+                })
 
 @app.route("/stats")
 def stat():
