@@ -10,6 +10,7 @@ import Plot from "react-plotly.js";
 
 const Stat= () => {
     const [graphs, setGraphs] = useState(null);
+    const [graphs2, setGraphs2] = useState(null);
     const [test,setTest] = useState(null)
     useEffect(() => {
         const getData = async () => {
@@ -22,6 +23,20 @@ const Stat= () => {
                     heuresParSemaineBySalary: JSON.parse(data.heuresParSemaineBySalary),
                     positiveCapitalByEducation: JSON.parse(data.positiveCapitalByEducation)
                 });
+            } catch (error) {
+                console.error("Erreur lors de la récupération des données : ", error);
+            }
+        };
+        const getData2 = async () => {
+            try {
+                const { data } = await axios.get('/visualization2');
+                setGraphs2({
+                    histoage: JSON.parse(data.histoage),
+                    boxplot_salary_jobcategory: JSON.parse(data.boxplot_salary_jobcategory),
+                    mean_salary_educationlevel: JSON.parse(data.mean_salary_educationlevel),
+                    
+                });
+                console.log(data)
             } catch (error) {
                 console.error("Erreur lors de la récupération des données : ", error);
             }
@@ -39,6 +54,7 @@ const Stat= () => {
             }
         };
         getData();
+        getData2();
         getStat();
     }, []);
     return (
@@ -154,7 +170,7 @@ const Stat= () => {
                         <p>Il semble que le secteur privé soit la classe de travail générant le plus de capital, suivi de près par l'auto-entrepreneuriat.</p>
                     </div>
 
-                    {/* Graphique 5: Capital Positif par Niveau d'Éducation */}
+                    {/* Graphique 5: Capital Positif par Niveau d'éducation*/}
                     <div className="titreD">
                         <h3>Représentation du capital en fonction du niveau d'éducation</h3>
                     </div>
@@ -166,6 +182,45 @@ const Stat= () => {
                     </div>
                     <div className="commentaireD">
                         <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                   {/* Graphique 6: Histogramme de l'âge*/}
+                   <div className="titreD">
+                        <h3>Distribution de l'âge</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.histoage.data}
+                            layout={graphs2.histoage.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p></p>
+                    </div>
+                    {/* Graphique 7: Boxplot des salaires par catégorie d'emploi*/}
+                    <div className="titreD">
+                        <h3>Boxplot des salaires par catégorie d'emploi</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.boxplot_salary_jobcategory.data}
+                            layout={graphs2.boxplot_salary_jobcategory.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p></p>
+                    </div>
+                    {/* Graphique 8: Diagramme en barres du salaire moyen par niveau d'éducation*/}
+                    <div className="titreD">
+                        <h3>Diagramme en barres du salaire moyen par niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.mean_salary_educationlevel.data}
+                            layout={graphs2.mean_salary_educationlevel.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p></p>
                     </div>
                 </>
             )}
