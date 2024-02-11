@@ -32,12 +32,17 @@ const Stat= () => {
                 const { data } = await axios.get('/visualization2');
                 setGraphs2({
                     "salary_by_gender":JSON.parse(data.salary_by_gender),
-                    "boxplot_salary_jobcategory":JSON.parse(data.boxplot_salary_jobcategory),
-                    "mean_salary_educationlevel":JSON.parse(data.mean_salary_educationlevel),
+                    boxplot_salary_jobcategory: JSON.parse(data.boxplot_salary_jobcategory),
+                    mean_salary_educationlevel: JSON.parse(data.mean_salary_educationlevel),
+                    kde_salary_distribution: JSON.parse(data.kde_salary_distribution),
+                    salary_evolution_by_age: JSON.parse(data.salary_evolution_by_age),
+                    sexe_salary_distribution: JSON.parse(data.sexe_salary_distribution),
                     "experience_vs_salary":JSON.parse(data.experience_vs_salary),
                     "job_title_by_gender":JSON.parse(data.job_title_by_gender),
                     "education_vs_salary":JSON.parse(data.education_vs_salary)
+                    
                 });
+                console.log(data)
             } catch (error) {
                 console.error("Erreur lors de la récupération des données : ", error);
             }
@@ -186,7 +191,7 @@ const Stat= () => {
                     </div>
                     {/* Graphique 6: Capital Positif par Niveau d'éducation*/}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>mean_salary_educationlevel</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -199,7 +204,7 @@ const Stat= () => {
                     </div>
                     {/* Graphique 7: Capital Positif par Niveau d'éducation*/}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>salary_by_gender</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -212,7 +217,7 @@ const Stat= () => {
                     </div>
                     {/* Graphique 8: boxplot_salary_jobcategory*/}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>boxplot_salary_jobcategory</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -225,7 +230,7 @@ const Stat= () => {
                     </div>
                     {/* Graphique 9: experience_vs_salary*/}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>experience_vs_salary</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -238,7 +243,7 @@ const Stat= () => {
                     </div>
                     {/* Graphique 10: experience_vs_salary*/}
                     <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>education_vs_salary</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -251,7 +256,7 @@ const Stat= () => {
                     </div>
                      {/* Graphique 11: job_title_by_gender*/}
                      <div className="titreD">
-                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                        <h3>job_title_by_gender</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -262,9 +267,50 @@ const Stat= () => {
                     <div className="commentaireD">
                         <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
                     </div>
-                   
-                   
-                   
+                    {/* Graphique 9: Le Paysage des Gains: Décryptage de la Topographie des Salaires */}
+                    <div className="titreD">
+                        <h3>Le Paysage des Gains: Décryptage de la Topographie des Salaires</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.kde_salary_distribution.data}
+                            layout={graphs2.kde_salary_distribution.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Dans notre dataset il y a des salaires variés. Cette visualisation souligne non seulement la diversité des salaires au sein du marché, mais également l'existence de seuils significatifs, probablement liés à des facteurs tels que l'expérience, l'éducation, la spécialisation ou la hiérarchie professionnelle. Le regroupement des données en différents "îlots" de densité suggère que le marché du travail peut être segmenté en plusieurs catégories distinctes, qui reflètent les différents niveaux de rémunération attribuables aux compétences, aux responsabilités et aux secteurs d'activité. Ces suppositions vont êtres confirmées ou pas dans les visualisations suivantes !  </p>                    
+                        <p>PS: Ce graphe est un KDE (Kernel density estimation), est une méthode d’estimation de la densité de probabilité d’une variable aléatoire.</p>
+                    </div>
+                    {/* Graphique 10: Evolution salaire avec l'age */}
+                    <div className="titreD">
+                        <h3>Ascension Salariale: L'Impact de l'Âge sur Votre Paycheck</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.salary_evolution_by_age.data}
+                            layout={graphs2.salary_evolution_by_age.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ce graphe peut directement nous confirmer l'hypothèse qui dit que l'âge est l'un des facteur de la différence des salaires. Cela est normal car il y a un potentiel d'accroissement des revenus avec l'expérience et l'âge, avec la croissance professionnelle et de l'accumulation de compétences au fil du temps. On peut clairement voir graçe à la courbe qui représente le salaire et les petits points qui eux représentent les diffèrents âges que tant que la personne grandit donc forcément gagne en expérience et en connaissances, son salaire va naturellement augmenter
+</p>            
+                    </div>
+                      {/* Graphique 11: map */}
+                      <div className="titreD">
+                        <h3>map</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.sexe_salary_distribution.data}
+                            layout={graphs2.sexe_salary_distribution.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Cette analyblahbhbhbh
+</p>                    
+                    </div>
+                    
+                    
                 </>
             )}
         </div>

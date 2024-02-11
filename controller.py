@@ -5,6 +5,13 @@ from dataVisualization import Visualization
 from dataVisualization2 import Visualization2
 from joblib import load
 import pandas as pd
+from flask import Flask, render_template, request
+
+from dash import Dash
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output
+
 
 server = Flask(__name__)
 vis = Visualization()
@@ -41,12 +48,18 @@ def visualization2():
     experience_vs_salary = json.dumps(vis2.experience_vs_salary(), cls=plotly.utils.PlotlyJSONEncoder)
     job_title_by_gender = json.dumps(vis2.job_title_by_gender(), cls=plotly.utils.PlotlyJSONEncoder)
     education_vs_salary = json.dumps(vis2.education_vs_salary(), cls=plotly.utils.PlotlyJSONEncoder)
+    kde_salary_distribution = json.dumps(vis2.kde_salary_distribution(), cls=plotly.utils.PlotlyJSONEncoder)
+    salary_evolution_by_age = json.dumps(vis2.salary_evolution_by_age(), cls=plotly.utils.PlotlyJSONEncoder)
+    sexe_salary_distribution = json.dumps(vis2.sexe_salary_distribution(), cls=plotly.utils.PlotlyJSONEncoder)
     return jsonify({"salary_by_gender":salary_by_gender,
                     "boxplot_salary_jobcategory":boxplot_salary_jobcategory,
                     "mean_salary_educationlevel":mean_salary_educationlevel,
                     "experience_vs_salary":experience_vs_salary,
                     "job_title_by_gender":job_title_by_gender,
-                    "education_vs_salary":education_vs_salary
+                    "education_vs_salary":education_vs_salary,
+                    "kde_salary_distribution": kde_salary_distribution,
+                    "salary_evolution_by_age": salary_evolution_by_age,
+                    "sexe_salary_distribution": sexe_salary_distribution,
                 })
 
 @server.route("/stats")
@@ -79,6 +92,7 @@ def prediction():
     return jsonify({
         "Prediction":Y_pred[0]
     })
+
 
 
 

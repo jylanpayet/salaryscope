@@ -42,3 +42,17 @@ class Visualization2:
                                  title='Corrélation entre Niveau d’Éducation et Salaire',
                                  labels={'Education Level Label': 'Niveau d’Éducation', 'Salary': 'Salaire'})
         return fig_education_vs_salary
+    def kde_salary_distribution(self):
+        fig_kde = px.density_contour(self.df, x="Salary", marginal_x="rug", title="Répartition des Salaires (KDE)")
+        return fig_kde
+    
+    def salary_evolution_by_age(self):
+        avg_salary_by_age = self.df.groupby('Age')['Salary'].mean().reset_index()
+        fig = px.scatter(avg_salary_by_age, x="Age", y="Salary", trendline="lowess",
+                         title="Évolution des Salaires par Âge")
+        return fig
+
+    def sexe_salary_distribution(self):
+        mean_salary_by_gender = self.df.groupby('Gender')['Salary'].mean().reset_index()
+        fig = px.bar(mean_salary_by_gender, x='Gender', y='Salary',color='Gender', title='Salaire Moyen par Genre')        
+        return fig
