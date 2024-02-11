@@ -29,9 +29,7 @@ class Visualization2:
         return fig_kde
     
     def salary_evolution_by_age(self):
-        # Calcul de la moyenne des salaires par âge
         avg_salary_by_age = self.df.groupby('Age')['Salary'].mean().reset_index()
-        # Création du graphique
         fig = px.scatter(avg_salary_by_age, x="Age", y="Salary", trendline="lowess",
                          title="Évolution des Salaires par Âge")
         return fig
