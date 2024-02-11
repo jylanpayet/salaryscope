@@ -1,15 +1,16 @@
 from flask import Flask, jsonify, request
 import json
 import plotly.utils
-from sklearn.discriminant_analysis import StandardScaler
 from dataVisualization import Visualization
 from dataVisualization2 import Visualization2
 from joblib import load
 import pandas as pd
 
-app = Flask(__name__)
+server = Flask(__name__)
 vis = Visualization()
 vis2 = Visualization2()
+
+
 
 modeleSVC = load('model_SVC.joblib')
 # Charger les modèles et transformateurs
@@ -18,7 +19,7 @@ encoding = load('encoding.joblib')
 scaler = load('scaler.joblib')
 pca = load('pca.joblib')
 
-@app.route("/visualization")
+@server.route("/visualization")
 def visualization():
     heuresParSemaineBySalary = json.dumps(vis.heuresParSemaineBySalary(), cls=plotly.utils.PlotlyJSONEncoder)
     repartitionSalaryInTheWorld = json.dumps(vis.repartitionSalaryInTheWorld(), cls=plotly.utils.PlotlyJSONEncoder)
@@ -32,20 +33,23 @@ def visualization():
                     "positiveCapitalByEducation":positiveCapitalByEducation
                     })
 
-
-@app.route("/visualization2")
+@server.route("/visualization2")
 def visualization2():
-    histoage = json.dumps(vis2.histoage(), cls=plotly.utils.PlotlyJSONEncoder)
     boxplot_salary_jobcategory = json.dumps(vis2.boxplot_salary_jobcategory(), cls=plotly.utils.PlotlyJSONEncoder)
     mean_salary_educationlevel = json.dumps(vis2.mean_salary_educationlevel(), cls=plotly.utils.PlotlyJSONEncoder)
-   
-    return jsonify({"histoage":histoage,
+    salary_by_gender = json.dumps(vis2.salary_by_gender(), cls=plotly.utils.PlotlyJSONEncoder)
+    experience_vs_salary = json.dumps(vis2.experience_vs_salary(), cls=plotly.utils.PlotlyJSONEncoder)
+    job_title_by_gender = json.dumps(vis2.job_title_by_gender(), cls=plotly.utils.PlotlyJSONEncoder)
+    education_vs_salary = json.dumps(vis2.education_vs_salary(), cls=plotly.utils.PlotlyJSONEncoder)
+    return jsonify({"salary_by_gender":salary_by_gender,
                     "boxplot_salary_jobcategory":boxplot_salary_jobcategory,
                     "mean_salary_educationlevel":mean_salary_educationlevel,
-                
+                    "experience_vs_salary":experience_vs_salary,
+                    "job_title_by_gender":job_title_by_gender,
+                    "education_vs_salary":education_vs_salary
                 })
 
-@app.route("/stats")
+@server.route("/stats")
 def stat():
     age_mean,user_nbr,salary_mean = vis.stats()
     return jsonify({
@@ -55,7 +59,7 @@ def stat():
     })
 
 
-@app.route('/prediction', methods=["GET"])
+@server.route('/prediction', methods=["GET"])
 def prediction():
     data = {
         "Age" : request.args.get('age', type=int),
@@ -79,6 +83,6 @@ def prediction():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    server.run(debug=True)
 
 

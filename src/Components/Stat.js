@@ -31,12 +31,13 @@ const Stat= () => {
             try {
                 const { data } = await axios.get('/visualization2');
                 setGraphs2({
-                    histoage: JSON.parse(data.histoage),
-                    boxplot_salary_jobcategory: JSON.parse(data.boxplot_salary_jobcategory),
-                    mean_salary_educationlevel: JSON.parse(data.mean_salary_educationlevel),
-                    
+                    "salary_by_gender":JSON.parse(data.salary_by_gender),
+                    "boxplot_salary_jobcategory":JSON.parse(data.boxplot_salary_jobcategory),
+                    "mean_salary_educationlevel":JSON.parse(data.mean_salary_educationlevel),
+                    "experience_vs_salary":JSON.parse(data.experience_vs_salary),
+                    "job_title_by_gender":JSON.parse(data.job_title_by_gender),
+                    "education_vs_salary":JSON.parse(data.education_vs_salary)
                 });
-                console.log(data)
             } catch (error) {
                 console.error("Erreur lors de la récupération des données : ", error);
             }
@@ -113,7 +114,7 @@ const Stat= () => {
                 </div>
             )}
 
-            {graphs && (
+            {graphs && graphs2 && (
                 <>
                     {/* Graphique 1: Heures par Semaine par Salaire */}
                     <div className="titreD">
@@ -183,35 +184,9 @@ const Stat= () => {
                     <div className="commentaireD">
                         <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
                     </div>
-                   {/* Graphique 6: Histogramme de l'âge*/}
-                   <div className="titreD">
-                        <h3>Distribution de l'âge</h3>
-                    </div>
-                    <div className="plot-container">
-                        <Plot
-                            data={graphs2.histoage.data}
-                            layout={graphs2.histoage.layout}
-                        />
-                    </div>
-                    <div className="commentaireD">
-                        <p></p>
-                    </div>
-                    {/* Graphique 7: Boxplot des salaires par catégorie d'emploi*/}
+                    {/* Graphique 6: Capital Positif par Niveau d'éducation*/}
                     <div className="titreD">
-                        <h3>Boxplot des salaires par catégorie d'emploi</h3>
-                    </div>
-                    <div className="plot-container">
-                        <Plot
-                            data={graphs2.boxplot_salary_jobcategory.data}
-                            layout={graphs2.boxplot_salary_jobcategory.layout}
-                        />
-                    </div>
-                    <div className="commentaireD">
-                        <p></p>
-                    </div>
-                    {/* Graphique 8: Diagramme en barres du salaire moyen par niveau d'éducation*/}
-                    <div className="titreD">
-                        <h3>Diagramme en barres du salaire moyen par niveau d'éducation</h3>
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -220,8 +195,76 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p></p>
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
                     </div>
+                    {/* Graphique 7: Capital Positif par Niveau d'éducation*/}
+                    <div className="titreD">
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.salary_by_gender.data}
+                            layout={graphs2.salary_by_gender.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                    {/* Graphique 8: boxplot_salary_jobcategory*/}
+                    <div className="titreD">
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.boxplot_salary_jobcategory.data}
+                            layout={graphs2.boxplot_salary_jobcategory.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                    {/* Graphique 9: experience_vs_salary*/}
+                    <div className="titreD">
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.experience_vs_salary.data}
+                            layout={graphs2.experience_vs_salary.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                    {/* Graphique 10: experience_vs_salary*/}
+                    <div className="titreD">
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.education_vs_salary.data}
+                            layout={graphs2.education_vs_salary.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                     {/* Graphique 11: job_title_by_gender*/}
+                     <div className="titreD">
+                        <h3>Représentation du capital en fonction du niveau d'éducation</h3>
+                    </div>
+                    <div className="plot-container">
+                        <Plot
+                            data={graphs2.job_title_by_gender.data}
+                            layout={graphs2.job_title_by_gender.layout}
+                        />
+                    </div>
+                    <div className="commentaireD">
+                        <p>Ici, il est évident que les personnes possédant un capital élevé sont généralement celles ayant un niveau d'études supérieur. Cependant, il est également notable que ce sont ces mêmes individus qui sont le plus susceptibles de subir des pertes de capital.</p>
+                    </div>
+                   
+                   
+                   
                 </>
             )}
         </div>
