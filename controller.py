@@ -7,12 +7,6 @@ from joblib import load
 import pandas as pd
 from flask import Flask, render_template, request
 
-from dash import Dash
-import dash_core_components as dcc
-import dash_html_components as html
-from dash.dependencies import Input, Output
-
-
 server = Flask(__name__)
 vis = Visualization()
 vis2 = Visualization2()
@@ -71,6 +65,14 @@ def stat():
         "salary_mean":salary_mean.to_json()
     })
 
+@server.route("/stats2")
+def stat2():
+    age_mean,user_nbr,salary_mean = vis2.stats2()
+    return jsonify({
+        "age_mean":age_mean.to_json(),
+        "user_nbr":user_nbr,
+        "salary_mean":salary_mean.to_json()
+    })
 
 @server.route('/prediction', methods=["GET"])
 def prediction():
