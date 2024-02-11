@@ -275,22 +275,10 @@ const Stat= () => {
                             </div>
                         </div>
                     )}
-                    {/* Graphique 6: Capital Positif par Niveau d'éducation*/}
-                    <div className="titreD">
-                        <h3>1. Une moyenne des salaires en fonction du niveau d'étude ?</h3>
-                    </div>
-                    <div className="plot-container">
-                        <Plot
-                            data={graphs2.mean_salary_educationlevel.data}
-                            layout={graphs2.mean_salary_educationlevel.layout}
-                        />
-                    </div>
-                    <div className="commentaireD">
-                        <p>??????</p>
-                    </div>
+
                     {/* Graphique 7: Capital Positif par Niveau d'éducation*/}
                     <div className="titreD">
-                        <h3>2. Visualisation des données salariales en fonction du genre</h3>
+                        <h3>1. Visualisation des données salariales en fonction du genre</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -299,11 +287,11 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Ce diagramme en boîte compare les salaires entre les genres masculin et féminin. Les boîtes représentent la répartition des salaires pour chaque genre, avec le bleu pour les hommes et le rouge pour les femmes. La boîte bleue montre une médiane plus élevée et une plage de salaires plus large que la boîte rouge, indiquant que les hommes ont tendance à avoir des salaires plus élevés et une plus grande variabilité dans leurs salaires. Les antennes des diagrammes en boîte suggèrent également des valeurs extrêmes plus élevées pour les hommes. Cette visualisation peut pointer vers une disparité salariale entre les genres, un sujet important dans les discussions sur l'équité sur le lieu de travail.</p>
                     </div>
                     {/* Graphique 8: boxplot_salary_jobcategory*/}
                     <div className="titreD">
-                        <h3>3. Boxplot du salaire par catégories de métiers</h3>
+                        <h3>2. Boxplot du salaire par catégories de métiers</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -312,11 +300,11 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Ici, nous pouvons observer la répartition des salaires en fonction de chaque intitulé de poste contenu dans notre jeu de données. À travers ce graphique, nous pouvons appréhender l'étendue des salaires présents. Notre jeu de données présente donc une grande variété, d'où notre choix de l'utiliser.</p>
                     </div>
                     {/* Graphique 9: experience_vs_salary*/}
                     <div className="titreD">
-                        <h3>4. Années d’Expérience vs Salaire par Niveau d’Éducation</h3>
+                        <h3>3. Années d’Expérience vs Salaire par Niveau d’Éducation</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -325,11 +313,11 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Ce nuage de points montre la relation entre les années d'expérience et le salaire, coloré selon le niveau d'éducation. On observe que les points deviennent plus jaunes (niveau d'éducation plus élevé) et tendent à être plus hauts sur l'axe des salaires, ce qui suggère que les salaires augmentent avec le niveau d'éducation et l'expérience. Il y a une large dispersion des salaires à chaque niveau d'expérience, mais la tendance générale indique que l'éducation peut renforcer l'effet de l'expérience sur le salaire. Cela suggère que l'expérience professionnelle couplée à un niveau d'éducation élevé peut être un moteur important de la croissance salariale.</p>
                     </div>
                     {/* Graphique 10: experience_vs_salary*/}
                     <div className="titreD">
-                        <h3>5. Une corrélation entre le niveau d'étude et le salaire</h3>
+                        <h3>4. Une corrélation entre le niveau d'étude et le salaire</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -338,11 +326,11 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Le graphique en boîte montre clairement que, généralement, un niveau d'éducation plus élevé est associé à des salaires plus élevés. Les médianes de salaire augmentent avec chaque niveau d'éducation supérieur, indiquant que l'investissement dans l'éducation peut potentiellement offrir des retours financiers. La dispersion croissante des salaires à des niveaux d'éducation plus élevés suggère également une plus grande variation des rémunérations parmi les individus hautement qualifiés. Toutefois, des valeurs aberrantes à chaque niveau indiquent que d'autres facteurs peuvent influencer le salaire au-delà de l'éducation.</p>
                     </div>
                     {/* Graphique 11: job_title_by_gender*/}
                     <div className="titreD">
-                        <h3>6. Répartition des genres selon les différents postes observés lors de l'étude</h3>
+                        <h3>5. Répartition des genres selon les différents postes observés lors de l'étude</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -351,12 +339,12 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Ce graphique à barres illustre la répartition des genres dans différents postes professionnels, avec des barres bleues représentant les hommes et des barres rouges représentant les femmes. On remarque que certains postes sont dominés par les hommes, tandis que d'autres ont une répartition plus équilibrée ou sont dominés par les femmes. Cela peut indiquer une ségrégation professionnelle basée sur le genre ou refléter des préférences dans le choix de carrière. Les différences notables dans certains postes pourraient également mettre en évidence des questions d'égalité des chances ou de plafond de verre dans certaines industries ou professions.</p>
                     </div>
 
                     {/* Graphique 10: Evolution salaire avec l'age */}
                     <div className="titreD">
-                        <h3>7. Ascension Salariale: L'Impact de l'Âge sur Votre Paycheck.</h3>
+                        <h3>6. Ascension Salariale: L'Impact de l'Âge sur Votre Paycheck.</h3>
                     </div>
                     <div className="plot-container">
                         <Plot
@@ -365,7 +353,7 @@ const Stat= () => {
                         />
                     </div>
                     <div className="commentaireD">
-                        <p>???????</p>
+                        <p>Le graphique montre une courbe ascendante de la rémunération en fonction de l'âge, indiquant une tendance à l'augmentation des salaires avec l'expérience professionnelle. La croissance est plus marquée entre 20 et 40 ans, avant de ralentir vers 60 ans, ce qui suggère un plafonnement potentiel des salaires en fin de carrière. Les écarts de rémunération notables chez les travailleurs plus âgés pourraient refléter des différences de carrière ou de secteur. Cette visualisation souligne l'importance de l'ancienneté dans la progression salariale, mais nécessite un contexte plus large pour une interprétation complète.</p>
                     </div>
                 </>
             )}

@@ -39,7 +39,7 @@ class Visualization2:
     def job_title_by_gender(self):
         job_counts = self.df.groupby('Job Title').filter(lambda x: len(x) > 50)
         fig_job_title_by_gender = px.histogram(job_counts, x='Job Title', color='Gender', barmode='group',
-                                       title='Répartition des Titres de Poste par Genre',
+                                       title='',
                                        labels={'Job Title': 'Titre de Poste', 'Gender': 'Genre'})
         return fig_job_title_by_gender
     
@@ -49,16 +49,16 @@ class Visualization2:
                                  labels={'Education Level Label': 'Niveau d’Éducation', 'Salary': 'Salaire'})
         return fig_education_vs_salary
     def kde_salary_distribution(self):
-        fig_kde = px.density_contour(self.df, x="Salary", marginal_x="rug", title="Répartition des Salaires (KDE)")
+        fig_kde = px.density_contour(self.df, x="Salary", marginal_x="rug", title="")
         return fig_kde
 
     def salary_evolution_by_age(self):
         avg_salary_by_age = self.df.groupby('Age')['Salary'].mean().reset_index()
         fig = px.scatter(avg_salary_by_age, x="Age", y="Salary", trendline="lowess",
-                         title="Évolution des Salaires par Âge")
+                         title="")
         return fig
 
     def sexe_salary_distribution(self):
         mean_salary_by_gender = self.df.groupby('Gender')['Salary'].mean().reset_index()
-        fig = px.bar(mean_salary_by_gender, x='Gender', y='Salary',color='Gender', title='Salaire Moyen par Genre')
+        fig = px.bar(mean_salary_by_gender, x='Gender', y='Salary',color='Gender', title='')
         return fig
