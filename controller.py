@@ -6,6 +6,13 @@ from dataVisualization import Visualization
 from dataVisualization2 import Visualization2
 from joblib import load
 import pandas as pd
+from flask import Flask, render_template, request
+
+from dash import Dash
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output
+
 
 app = Flask(__name__)
 vis = Visualization()
@@ -38,12 +45,20 @@ def visualization2():
     histoage = json.dumps(vis2.histoage(), cls=plotly.utils.PlotlyJSONEncoder)
     boxplot_salary_jobcategory = json.dumps(vis2.boxplot_salary_jobcategory(), cls=plotly.utils.PlotlyJSONEncoder)
     mean_salary_educationlevel = json.dumps(vis2.mean_salary_educationlevel(), cls=plotly.utils.PlotlyJSONEncoder)
+    kde_salary_distribution = json.dumps(vis2.kde_salary_distribution(), cls=plotly.utils.PlotlyJSONEncoder)
+    salary_evolution_by_age = json.dumps(vis2.salary_evolution_by_age(), cls=plotly.utils.PlotlyJSONEncoder)
+    sexe_salary_distribution = json.dumps(vis2.sexe_salary_distribution(), cls=plotly.utils.PlotlyJSONEncoder)
+   # multifactorial_analysis = json.dumps(vis2.multifactorial_analysis(), cls=plotly.utils.PlotlyJSONEncoder)
    
-    return jsonify({"histoage":histoage,
-                    "boxplot_salary_jobcategory":boxplot_salary_jobcategory,
-                    "mean_salary_educationlevel":mean_salary_educationlevel,
-                
-                })
+    return jsonify({
+        "histoage": histoage,
+        "boxplot_salary_jobcategory": boxplot_salary_jobcategory,
+        "mean_salary_educationlevel": mean_salary_educationlevel,
+        "kde_salary_distribution": kde_salary_distribution,
+        "salary_evolution_by_age": salary_evolution_by_age,
+        "sexe_salary_distribution": sexe_salary_distribution,
+      #  "multifactorial_analysis": multifactorial_analysis,
+    })
 
 @app.route("/stats")
 def stat():
@@ -75,6 +90,7 @@ def prediction():
     return jsonify({
         "Prediction":Y_pred[0]
     })
+
 
 
 

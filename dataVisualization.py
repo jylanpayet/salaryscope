@@ -3,7 +3,7 @@ import plotly.express as px
 
 class Visualization:
     def __init__(self) -> None:
-        self.df = pd.read_csv("./salary.csv")
+        self.df = pd.read_csv("salary.csv")
         self.df['salary_numeric'] = self.df['salary'].astype(str).apply(lambda x: 1 if x.strip() == '>50K' else 0)
         self.df['positive_capital'] = self.df['capital-gain'].apply(lambda x: x if x > 0 else 0)
         self.df['negative_capital'] = self.df['capital-loss'].apply(lambda x: -x if x > 0 else 0)
